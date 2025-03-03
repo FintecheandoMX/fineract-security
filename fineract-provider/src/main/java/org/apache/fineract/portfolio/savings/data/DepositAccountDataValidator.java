@@ -591,8 +591,6 @@ public class DepositAccountDataValidator {
             final Integer depositPeriod = fromApiJsonHelper.extractIntegerSansLocaleNamed(depositPeriodParamName, element);
             if (depositAccountType.isFixedDeposit()) {
                 baseDataValidator.reset().parameter(depositPeriodParamName).value(depositPeriod).notNull().integerGreaterThanZero();
-            } else {
-                baseDataValidator.reset().parameter(depositPeriodParamName).value(depositPeriod).notNull().integerGreaterThanZero();
             }
         }
 

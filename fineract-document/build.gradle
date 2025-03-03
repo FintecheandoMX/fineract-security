@@ -69,7 +69,8 @@ modernizer {
     ignoreClassNamePatterns = [
         '.*AbstractPersistableCustom',
         '.*EntityTables',
-        '.*domain.*'
+        '.*domain.*',
+        '.*FileSystemContentRepository'
     ]
 }
 

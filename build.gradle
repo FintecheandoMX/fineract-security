@@ -97,7 +97,7 @@ plugins {
     id 'com.github.hierynomus.license' version '0.16.1' apply false
     id 'com.github.jk1.dependency-license-report' version '2.9' apply false
     id 'org.zeroturnaround.gradle.jrebel' version '1.2.0' apply false
-    id 'org.springframework.boot' version '3.3.5' apply false
+    id 'org.springframework.boot' version '3.3.9' apply false
     id 'net.ltgt.errorprone' version '4.1.0' apply false
     id 'io.swagger.core.v3.swagger-gradle-plugin' version '2.2.23' apply false
     id 'com.gorylenko.gradle-git-properties' version '2.4.2' apply false
@@ -105,9 +105,8 @@ plugins {
     id 'org.asciidoctor.jvm.pdf' version '3.3.2' apply false
     id 'com.google.cloud.tools.jib' version '3.4.4' apply false
     id 'org.sonarqube' version '6.0.1.5171'
-    id 'com.github.andygoossens.modernizer' version '1.10.0' apply false
-    // TODO: upgrade to 6.0.4
-    id 'com.github.spotbugs' version '6.0.26' apply false
+    id 'com.github.andygoossens.modernizer' version '1.11.0' apply false
+    id 'com.github.spotbugs' version '6.1.6' apply false
     id 'se.thinkcode.cucumber-runner' version '0.0.11' apply false
     id "com.github.davidmc24.gradle.plugin.avro-base" version "1.9.1" apply false
     id 'org.openapi.generator' version '7.8.0' apply false
@@ -521,7 +520,7 @@ configure(project.fineractJavaProjects) {
     // Configuration for the Checkstyle plugin
     // https://docs.gradle.org/current/userguide/checkstyle_plugin.html
     dependencies {
-        checkstyle 'com.puppycrawl.tools:checkstyle:10.20.1'
+        checkstyle 'com.puppycrawl.tools:checkstyle:10.21.4'
         checkstyle 'com.github.sevntu-checkstyle:sevntu-checks:1.44.1'
     }
 
@@ -543,7 +542,7 @@ configure(project.fineractJavaProjects) {
     // Configuration for the errorprone plugin
     // https://github.com/tbroyer/gradle-errorprone-plugin
     dependencies {
-        errorprone "com.google.errorprone:error_prone_core:2.35.1"
+        errorprone "com.google.errorprone:error_prone_core:2.36.0"
     }
 
     tasks.withType(JavaCompile).configureEach {
@@ -672,8 +671,8 @@ configure(project.fineractJavaProjects) {
                 'org.junit.jupiter:junit-jupiter-engine',
                 'org.junit.jupiter:junit-jupiter-params',
                 'org.junit.platform:junit-platform-runner', // required to be able to run tests directly under Eclipse, see FINERACT-943 & FINERACT-1021
-                'org.bouncycastle:bcpkix-jdk15to18',
-                'org.bouncycastle:bcprov-jdk15to18',
+                'org.bouncycastle:bcpkix-jdk18on',
+                'org.bouncycastle:bcprov-jdk18on',
                 'org.awaitility:awaitility',
                 )
 
@@ -786,15 +785,15 @@ configure(project.fineractCustomProjects) {
                 'org.junit.jupiter:junit-jupiter-api',
                 'org.junit.jupiter:junit-jupiter-engine',
                 'org.junit.platform:junit-platform-runner', // required to be able to run tests directly under Eclipse, see FINERACT-943 & FINERACT-1021
-                'org.bouncycastle:bcpkix-jdk15to18',
-                'org.bouncycastle:bcprov-jdk15to18',
+                'org.bouncycastle:bcpkix-jdk18on',
+                'org.bouncycastle:bcprov-jdk18on',
                 'org.awaitility:awaitility',
                 'io.github.classgraph:classgraph',
                 'io.cucumber:cucumber-core',
-                'io.cucumber:cucumber-java:7.20.1',
-                'io.cucumber:cucumber-java8:7.20.1',
-                'io.cucumber:cucumber-junit-platform-engine:7.20.1',
-                'io.cucumber:cucumber-spring:7.20.1',
+                'io.cucumber:cucumber-java:7.21.1',
+                'io.cucumber:cucumber-java8:7.21.1',
+                'io.cucumber:cucumber-junit-platform-engine:7.21.1',
+                'io.cucumber:cucumber-spring:7.21.1',
                 )
 
         testCompileOnly('org.projectlombok:lombok')

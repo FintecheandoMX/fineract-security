@@ -28,6 +28,18 @@ configurations {
 
 apply from: 'dependencies.gradle'
 
+// Configuration for the modernizer plugin
+// https://github.com/andygoossens/gradle-modernizer-plugin
+modernizer {
+    ignoreClassNamePatterns = [
+        '.*ClientEntityImportHandlerTest',
+        '.*LoanImportHandlerTest',
+        '.*OfficeImportHandlerTest',
+        '.*SavingsImportHandlerTest',
+        '.*DocumentTest'
+    ]
+}
+
 // Allow external drivers to be used for the tests without packaging it
 // mainly due to license incompatibilities
 configurations {

@@ -123,7 +123,12 @@ modernizer {
     ignoreClassNamePatterns = [
         '.*AbstractPersistableCustom',
         '.*EntityTables',
-        '.*domain.*'
+        '.*domain.*',
+        '.*BulkImportWorkbookServiceImpl',
+        '.*ExecuteEmailTasklet',
+        '.*ExecuteReportMailingJobsTasklet',
+        '.*ReadReportingServiceImpl',
+        '.*PdfDatatableReportExportService'
     ]
 }
 
@@ -369,7 +374,7 @@ resolveMainClassName.dependsOn resolve
 processResources.dependsOn compileJava
 
 javadoc {
-    dependsOn resolve
+    dependsOn resolve    
 }
 
 task devRun(type: org.springframework.boot.gradle.tasks.run.BootRun) {

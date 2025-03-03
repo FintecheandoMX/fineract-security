@@ -18,8 +18,11 @@
  */
 package org.apache.fineract.client.util.adapter;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.apache.fineract.client.models.ExternalId;
@@ -43,8 +46,17 @@ public class ExternalIdAdapter extends TypeAdapter<ExternalId> {
                 in.nextNull();
                 return result;
             default:
-                String value = in.nextString();
-                return new ExternalId().empty(false).value(value);
+                if (in.peek() == JsonToken.BEGIN_OBJECT) {
+                    // Handle nested object
+                    JsonObject jsonObject = JsonParser.parseReader(in).getAsJsonObject();
+                    // Extract the string
+                    String value = jsonObject.get("id").getAsString();
+                    return new ExternalId().empty(false).value(value);
+                } else {
+                    // Handle plain string
+                    String value = in.nextString();
+                    return new ExternalId().empty(false).value(value);
+                }
         }
     }
 }

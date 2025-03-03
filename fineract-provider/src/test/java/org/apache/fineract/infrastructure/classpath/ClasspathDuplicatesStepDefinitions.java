@@ -97,6 +97,8 @@ public class ClasspathDuplicatesStepDefinitions implements En {
                 || resourcePath.toUpperCase().startsWith("META-INF/NOTICE") || resourcePath.toUpperCase().startsWith("META-INF/LICENSE")
                 || resourcePath.toUpperCase().startsWith("META-INF/COPYRIGHT") || resourcePath.toUpperCase().startsWith("LICENSE")
                 || resourcePath.toUpperCase().startsWith("LICENSE/NOTICE")
+                // Bouncy Castle
+                || resourcePath.toUpperCase().startsWith("OSGI-INF/MANIFEST.MF")
                 // list formerly in ClasspathHellDuplicatesCheckRule (moved here
                 // in INFRAUTILS-52)
                 || resourcePath.endsWith(".txt") || resourcePath.endsWith("LICENSE") || resourcePath.endsWith("license.html")

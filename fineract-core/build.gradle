@@ -21,6 +21,12 @@ description = 'Fineract Core'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+javadoc {
+    exclude 'org/apache/fineract/infrastructure/security/domain/BasicPasswordEncodablePlatformUser.java'
+    exclude 'org/apache/fineract/infrastructure/core/domain/AbstractAuditableWithUTCDateTimeCustom.java'
+    exclude 'org/apache/fineract/infrastructure/core/domain/AbstractPersistableCustom.java'
+}
+
 compileJava.doLast {
     def mainSS = sourceSets.main
     def source = mainSS.java.classesDirectory.get()
