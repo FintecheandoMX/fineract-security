@@ -911,7 +911,7 @@ public class LoanTransactionHelper {
         log.info("Creating interest pause for Loan {} from {} to {} with dateFormat {} and locale {}", loanID, startDate, endDate,
                 dateFormat, locale);
         String body = getInterestPauseBodyAsJSON(startDate, endDate, dateFormat, locale);
-        log.info("***** body {} ******",body);
+        log.info("***** body {} ******", body);
         return postLoanTransaction(createInterestPause(INTEREST_PAUSE_COMMAND, loanID), body);
     }
 
